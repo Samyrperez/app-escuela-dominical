@@ -1,14 +1,18 @@
 .container-header {
-    background-color: #96949a;
-    border: solid 1px black;
+    width: auto;
+    /* background-color: #d4cce4; */
+    /* border: solid 1px black; */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid rgb(97, 96, 96);
 }
 
 .conatiner-info-header {
     display: flex;
     align-items: center;
+    justify-content: center;
+    
 }
 
 #find {
@@ -28,8 +32,11 @@
     /* ring-2 ring-blue-500 */
 }
 
-.actionIcons {
+#container-actionIcons {
     display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 5px 5px 5px;
 }
 
 #container-PanelAdministrativo {
@@ -39,5 +46,27 @@
 #container-PanelAdministrativo div {
     width: 100px;
     border: solid black 1px;
+}
+#mode {
+    width: 24px;
+    height: 24px;
+}
+
+#avatar img {
+    width: 40px;
+    border-radius: 50px;
+}
+#container-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+#container-logo img  {
+    width: 40px;
+}
+#container-logo h1  {
+    font-weight: bold;
+    
 }
 

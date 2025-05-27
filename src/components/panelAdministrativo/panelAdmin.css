@@ -1,0 +1,63 @@
+#container-panelAdministrativo {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
+
+#container-panelAdministrativo div {
+    width: 130px;
+    height: auto;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    border: none;
+}
+#container-panelAdministrativo img {
+    filter: brightness(0) invert(1);
+}
+
+#estudiantes {
+    background-color: #3B82F6;
+    color: white;
+}
+
+#periodos {
+    background-color: #8B5CF6;
+    color: white;
+}
+
+#maestros {
+    background-color: #10B981;
+    color: white;
+}
+
+#cursos {
+    background-color: #F59E0B;
+    color: white;
+}
+
+#lecciones {
+    background-color: #0EA5E9;
+    color: white;
+}
+
+#asistencias {
+    background-color: #EF4444;
+    color: white;
+}
+
+#reportes-estadisticas {
+    background-color: #6B7280;
+    color: white;
+}
+
+#salones {
+    background-color: #22C55E;
+    color: white;
+    filter: brightness(1.1);
+}

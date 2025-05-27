@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import ModeDark from "../icons/ModeDark";
-import ModeLight from "../icons/ModeLight";
-import Notification from "../icons/Notification";
+// import ModeDark from "../icons/ModeDark";
+// import ModeLight from "../icons/ModeLight";
+// import Notification from "../icons/Notification";
 import "../header/header.css"
 
 
@@ -23,24 +23,27 @@ function Header() {
 
     return (
         <div className="container-header">
-            <div className="container-logo">Logo</div>
+            <div className="" id="container-logo">
+                <img src="/image/LGC-icon-green.png" alt="Logo-LGC" />
+                <h1>ED LGC</h1>
+            </div>
             <div className="conatiner-info-header">
                 <input type="text" id="find" placeholder="Buscar en el sistema" 
                     className="" />
-                <div className="actionIcons">
+                <div className="" id="container-actionIcons">
 
                     <div className="notification">
-                        <Notification />
+                        <img src="/image/notifications.svg" alt="" />
                     </div>
 
-                    <div className="mode">
+                    <div className="" id="mode">
                         <button onClick={toggleDarkMode}>
-                            {isDarkMode ? <ModeLight/> : <ModeDark/>}
+                            {isDarkMode ? <img src="/image/mode-light.svg" alt="" /> : <img src="/image/mode-dark.svg" alt="" />}
                         </button>
                     </div>
 
-                    <div className="avatar">
-                        <img src="" alt="avatar" />
+                    <div className="" id="avatar">
+                        <img src="/image/LGC-green.jpeg" alt="avatar" />
                     </div>
                     
                     

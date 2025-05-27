@@ -1,4 +1,9 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: #edeef2;
+}
+
+#container-panel{
+    margin-top: 20px ;
 }
