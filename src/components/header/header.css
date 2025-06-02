@@ -5,7 +5,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgb(97, 96, 96);
+    border-bottom: 1px solid rgb(199, 198, 198);
+    padding: 8px 10px 8px 10px;
+    margin: auto 10px auto 10px;
 }
 
 .conatiner-info-header {
@@ -45,7 +47,7 @@
 
 #container-PanelAdministrativo div {
     width: 100px;
-    border: solid black 1px;
+    /* border: solid rgb(148, 147, 147) 1px; */
 }
 #mode {
     width: 24px;
@@ -69,4 +71,16 @@
     font-weight: bold;
     
 }
+#avatar {
+    position: relative;
+}
 
+#avatar {
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    #find {
+        display: block;
+    } 
+}

@@ -1,58 +1,64 @@
 import { useEffect, useState } from "react";
-// import ModeDark from "../icons/ModeDark";
-// import ModeLight from "../icons/ModeLight";
-// import Notification from "../icons/Notification";
-import "../header/header.css"
+import "../header/header.css";
+import UserDropdown from "../header/UserDropdown"; 
 
-
-function Header() {
-
+function Header({user}) {
     const [isDarkMode, setIsDarkMode] = useState(false);
 
-    useEffect (() => {
-        if(isDarkMode) {
-            document.documentElement.classList.add("dark")
-        } else {
-            document.documentElement.classList.remove("dark")
-        }
-    })
+    
 
-    const toggleDarkMode = () => {
-        setIsDarkMode(!isDarkMode)
+    useEffect(() => {
+        if (isDarkMode) {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+    }, [isDarkMode]);
+
+    const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
+
+    const handleVerPerfil = () => {
+        console.log("Ver perfil");
+    };
+
+    const handleCerrarSesion = () => {
+        console.log("Cerrar sesión");
     };
 
     return (
         <div className="container-header">
-            <div className="" id="container-logo">
+            <div id="container-logo">
                 <img src="/image/LGC-icon-green.png" alt="Logo-LGC" />
                 <h1>ED LGC</h1>
             </div>
-            <div className="conatiner-info-header">
-                <input type="text" id="find" placeholder="Buscar en el sistema" 
-                    className="" />
-                <div className="" id="container-actionIcons">
 
+            <div className="conatiner-info-header">
+                <input type="text" id="find" placeholder="Buscar en el sistema" />
+
+                <div id="container-actionIcons">
                     <div className="notification">
-                        <img src="/image/notifications.svg" alt="" />
+                        <img src="/image/notifications.svg" alt="notificaciones" />
                     </div>
 
-                    <div className="" id="mode">
+                    <div id="mode">
                         <button onClick={toggleDarkMode}>
-                            {isDarkMode ? <img src="/image/mode-light.svg" alt="" /> : <img src="/image/mode-dark.svg" alt="" />}
+                            {isDarkMode ? (
+                                <img src="/image/mode-light.svg" alt="modo claro" />
+                            ) : (
+                                <img src="/image/mode-dark.svg" alt="modo oscuro" />
+                            )}
                         </button>
                     </div>
 
-                    <div className="" id="avatar">
-                        <img src="/image/LGC-green.jpeg" alt="avatar" />
-                    </div>
-                    
-                    
+                    <UserDropdown
+                        user={user}
+                        onVerPerfil={handleVerPerfil}
+                        onCerrarSesion={handleCerrarSesion}
+                    />
                 </div>
             </div>
         </div>
-    )
-
+    );
 }
 
 export default Header;
-

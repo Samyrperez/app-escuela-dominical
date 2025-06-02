@@ -1,0 +1,45 @@
+.dropdown-menu {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+    z-index: 100;
+    text-align: left;
+}
+
+.dropdown-menu p {
+    margin: 4px 0;
+    color: #333;
+}
+
+.dropdown-menu .user-role {
+    font-size: 0.85em;
+    color: #666;
+}
+
+.dropdown-menu hr {
+    margin: 10px 0;
+    border: none;
+    border-top: 1px solid #eee;
+}
+
+.dropdown-btn {
+    background: none;
+    border: none;
+    color: #1d4ed8;
+    cursor: pointer;
+    padding: 5px 0;
+    width: 100%;
+    text-align: left;
+    font-size: 0.95em;
+}
+
+.dropdown-btn:hover {
+    text-decoration: underline;
+}
+

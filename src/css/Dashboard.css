@@ -4,6 +4,59 @@ body {
     background-color: #edeef2;
 }
 
-#container-panel{
-    margin-top: 20px ;
+#container-panel {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 10px;
+}
+
+
+.container-menu-desktop {
+    display: none;
+}
+
+.container-header-desktop {
+    display: none;
+}
+
+.container-menu-movil {
+    margin-top: 20px;
+}
+
+@media (min-width: 640px) {
+    #container-panel {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 30px;
+        padding: 0 40px;
+    }
+
+    .container-menu-desktop {
+        display: block;
+        
+    }
+
+    .container-header-desktop {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .container-menu-movil {
+        display: none;
+    }
+
+    .container-header-movil {
+        display: none;
+    }
+
+    .container-Dashboard {
+        display: flex;
+    }
+
+
+
+
 }
