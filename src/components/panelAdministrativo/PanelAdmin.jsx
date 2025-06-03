@@ -1,6 +1,8 @@
 import "../panelAdministrativo/panelAdmin.css";
 
 function PanelAdmin() {
+    
+
     return (
         <div id="container-panelAdministrativo">
             <div className="" id="asistencia-semana">

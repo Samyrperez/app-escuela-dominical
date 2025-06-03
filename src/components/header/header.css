@@ -17,6 +17,7 @@
     
 }
 
+
 #find {
     padding: 0.25rem;
     /* Equivale a Tailwind p-1 */
@@ -58,16 +59,17 @@
     width: 40px;
     border-radius: 50px;
 }
-#container-logo{
+.container-logo{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5px;
 }
-#container-logo img  {
+.container-logo img  {
     width: 40px;
+    border-radius: 50%;
 }
-#container-logo h1  {
+.container-logo h1  {
     font-weight: bold;
     
 }

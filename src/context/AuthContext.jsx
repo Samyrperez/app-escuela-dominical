@@ -5,7 +5,7 @@ const usuarioPrueba = {
     id: 1,
     userName: "Sperez",
     nombre: "Sam Pérez",
-    rol: "maestro", // Cambia a "admin" para probar
+    rol: "admin", // Cambia a "admin" para probar
 };
 
 export const AuthContext = createContext();

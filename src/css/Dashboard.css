@@ -2,6 +2,12 @@ body {
     margin: 0;
     padding: 0;
     background-color: #edeef2;
+    color: #1a1a1a;
+}
+
+.dark body {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
 }
 
 #container-panel {
@@ -12,7 +18,9 @@ body {
     padding: 0 10px;
 }
 
-
+.dark #container-panel {
+    background-color: #2a2a2a;
+}
 .container-menu-desktop {
     display: none;
 }
@@ -36,6 +44,8 @@ body {
 
     .container-menu-desktop {
         display: block;
+        margin-top: 10px;
+        margin-left: 10px;
         
     }
 

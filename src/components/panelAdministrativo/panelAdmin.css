@@ -74,27 +74,78 @@
 #asistencia-semana {
     background-color: #3B82F6;
     color: white;
+    cursor: pointer;
 }
 
 #lecciones-semana {
     background-color: #10B981;
     color: white;
+    cursor: pointer;
 }
 
 #cumpleanos {
     background-color: #F59E0B;
     color: white;
+    cursor: pointer;
 }
 
 #ofrenda {
     background-color: #EF4444;
     color: white;
+    cursor: pointer;
 }
 
 #reporte-asistencia {
     background-color: #6B7280;
     color: white;
+    cursor: pointer;
 }
+
+/* Fondo y texto general en modo oscuro */
+html.dark #container-panelAdministrativo {
+    background-color: #1e1e2f;
+    color: #ddd;
+}
+
+/* Los div generales dentro mantienen fondo y texto transparentes o neutros para no tapar los colores */
+html.dark #container-panelAdministrativo div {
+    border: none;
+
+    color: white; /* texto en blanco para mejor contraste */
+}
+
+/* Mantener los colores originales de los div específicos */
+html.dark #asistencia-semana {
+    background-color: #3B82F6 !important; /* mantén el azul */
+    color: white;
+}
+
+html.dark #lecciones-semana {
+    background-color: #10B981 !important; /* verde */
+    color: white;
+}
+
+html.dark #cumpleanos {
+    background-color: #F59E0B !important; /* amarillo */
+    color: white;
+}
+
+html.dark #ofrenda {
+    background-color: #EF4444 !important; /* rojo */
+    color: white;
+}
+
+html.dark #reporte-asistencia {
+    background-color: #6B7280 !important; /* gris oscuro */
+    color: white;
+}
+
+/* Ajustar imágenes para que se vean bien (por ejemplo quitar filtro invert en modo oscuro) */
+html.dark #container-panelAdministrativo img {
+    filter: none !important;
+    transition: transform 0.3s ease;
+}
+
 
 @media (min-width: 640px) {
     #container-panelAdministrativo {

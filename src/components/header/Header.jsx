@@ -1,21 +1,11 @@
-import { useEffect, useState } from "react";
+import { useTheme } from "../../context/ThemeContext";
 import "../header/header.css";
-import UserDropdown from "../header/UserDropdown"; 
+import UserDropdown from "../header/UserDropdown";
+import NotificationDropdown from "./NotificationDropdown";
 
-function Header({user}) {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+function Header({ user }) {
+    const { isDarkMode, toggleDarkMode } = useTheme();
 
-    
-
-    useEffect(() => {
-        if (isDarkMode) {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-        }
-    }, [isDarkMode]);
-
-    const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
     const handleVerPerfil = () => {
         console.log("Ver perfil");
@@ -27,8 +17,8 @@ function Header({user}) {
 
     return (
         <div className="container-header">
-            <div id="container-logo">
-                <img src="/image/LGC-icon-green.png" alt="Logo-LGC" />
+            <div className="container-logo">
+                <img src="/image/logo-1.jpeg" alt="Logo-LGC" />
                 <h1>ED LGC</h1>
             </div>
 
@@ -36,9 +26,7 @@ function Header({user}) {
                 <input type="text" id="find" placeholder="Buscar en el sistema" />
 
                 <div id="container-actionIcons">
-                    <div className="notification">
-                        <img src="/image/notifications.svg" alt="notificaciones" />
-                    </div>
+                    <NotificationDropdown />
 
                     <div id="mode">
                         <button onClick={toggleDarkMode}>
