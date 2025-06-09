@@ -1,0 +1,52 @@
+/* === LOGIN === */
+.login-container {
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.login-form {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+.login-form h1 {
+    color: var(--text-color);
+}
+
+.login-input {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    transition: border 0.3s ease, background-color 0.3s ease;
+}
+
+.login-input::placeholder {
+    color: #888;
+}
+
+.login-input:focus {
+    outline: none;
+    border-color: #2563eb; /* azul */
+    background-color: var(--btn-hover-bg);
+}
+
+.login-button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #1d4ed8;
+}

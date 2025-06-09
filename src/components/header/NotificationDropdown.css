@@ -7,6 +7,7 @@
     top: 45px;
     right: 0;
     background-color: white;
+    color: #1f2937; /* Texto en modo claro */
     border: 1px solid #ddd;
     padding: 12px;
     border-radius: 8px;
@@ -15,11 +16,10 @@
     z-index: 100;
 }
 
-
 .notification-title {
     font-weight: bold;
     margin-bottom: 8px;
-    color: #1f2937;
+    color: inherit;
 }
 
 .notification-empty {
@@ -31,4 +31,24 @@
     margin: 10px 0;
     border: none;
     border-top: 1px solid #eee;
+}
+
+/* MODO OSCURO */
+.dark .notification-dropdown {
+    background-color: #2a2a2a;
+    color: #f3f4f6; /* Texto claro */
+    border: 1px solid #444;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.dark .notification-empty {
+    color: #9ca3af;
+}
+
+.dark .notification-dropdown hr {
+    border-top: 1px solid #555;
+}
+
+.dark .notification {
+    filter: brightness(0) invert(1);
 }

@@ -10,11 +10,12 @@
     min-width: 180px;
     z-index: 100;
     text-align: left;
+    color: #333;
 }
 
 .dropdown-menu p {
     margin: 4px 0;
-    color: #333;
+    color: inherit;
 }
 
 .dropdown-menu .user-role {
@@ -43,3 +44,26 @@
     text-decoration: underline;
 }
 
+/* MODO OSCURO */
+.dark .dropdown-menu {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: #f3f4f6;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.dark .dropdown-menu .user-role {
+    color: #9ca3af;
+}
+
+.dark .dropdown-menu hr {
+    border-top: 1px solid #555;
+}
+
+.dark .dropdown-btn {
+    color: #60a5fa; /* azul más suave para dark */
+}
+
+.dark .dropdown-btn:hover {
+    text-decoration: underline;
+}

@@ -26,6 +26,10 @@
     position: relative;
 }
 
+/* .dark #panelAdministrativo img{
+    filter: brightness(0) invert(1);
+} */
+
 #container-panelAdministrativo img {
     filter: brightness(0) invert(1);
     transition: transform 0.3s ease;
@@ -64,12 +68,11 @@
 }
 
 
-/* Asegúrate de que el contenedor tenga position: relative */
+
 #container-panelAdministrativo div {
     position: relative;
 }
 
-/* NUEVOS IDs SEGÚN LOS NUEVOS ITEMS */
 
 #asistencia-semana {
     background-color: #3B82F6;
@@ -140,7 +143,7 @@ html.dark #reporte-asistencia {
     color: white;
 }
 
-/* Ajustar imágenes para que se vean bien (por ejemplo quitar filtro invert en modo oscuro) */
+
 html.dark #container-panelAdministrativo img {
     filter: none !important;
     transition: transform 0.3s ease;
@@ -150,7 +153,7 @@ html.dark #container-panelAdministrativo img {
 @media (min-width: 640px) {
     #container-panelAdministrativo {
         flex: 1;
-        margin-top: 0;
+        margin-top: 10px;
     }
 
     #container-panelAdministrativo div {

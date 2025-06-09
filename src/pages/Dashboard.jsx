@@ -1,8 +1,11 @@
 
-import MenuNavigation from "../components/accesoRapido/menuNavigation";
+import MenuNavigation from "../components/accesoRapido/MenuNavigation";
 import Header from "../components/header/Header";
 import PanelAdmin from "../components/panelAdministrativo/PanelAdmin";
 import "../css/Dashboard.css"
+import { Outlet } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 
 // import { rolPermisos } from "../constants/rolesPermisos";
 
@@ -12,8 +15,12 @@ function Dashboard() {
     const user = {
         userName: "Sperez",
         nombre: "Sam Pérez",
-        rol: "Maestro"
+        rol: "Admin"
     };
+
+    const location = useLocation();
+    const estaEnSubRuta = location.pathname.startsWith("/dashboard/") && location.pathname !== "/dashboard";
+
 
     return (
         <>
@@ -29,7 +36,7 @@ function Dashboard() {
                 </div>
 
 
-                <div className="container-panel" id="">
+                <div className="container-panel">
 
                     <div className="container-header-desktop">
                         <Header user={user} />
@@ -37,12 +44,31 @@ function Dashboard() {
 
                     <div className="container-menu-movil">
                         <MenuNavigation rol={user.rol}
-                        className="menu-navigation-movil" />
+                            className="menu-navigation-movil" />
                     </div>
 
                     <div className="container-panelAdmin-dashboard">
-                        <PanelAdmin rol={user.rol} />
+                        {estaEnSubRuta ? (
+                            <details className="panel-admin-desplegable">
+                                <summary>
+                                    {/* <img src="/image/menu.svg" alt="Panel" /> */}
+                                    Panel administrativo
+                                    <span className="caret-icon">▼</span>
+                                </summary>
+                                <PanelAdmin rol={user.rol} />
+                            </details>
+
+                        ) : (
+                            <div className="panel-admin-fijo">
+                                <PanelAdmin rol={user.rol} />
+                            </div>
+                        )}
+
+                        <div className="contenido-dinamico">
+                            <Outlet />
+                        </div>
                     </div>
+
 
                 </div>
 

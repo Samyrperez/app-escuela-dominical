@@ -19,7 +19,7 @@ function Header({ user }) {
         <div className="container-header">
             <div className="container-logo">
                 <img src="/image/logo-1.jpeg" alt="Logo-LGC" />
-                <h1>ED LGC</h1>
+                <h1>EB LGC</h1>
             </div>
 
             <div className="conatiner-info-header">

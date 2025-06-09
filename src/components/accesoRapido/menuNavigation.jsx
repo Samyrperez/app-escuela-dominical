@@ -1,6 +1,7 @@
 import "../accesoRapido/menuNavigation.css";
 import useAuth from "../../context/AuthContext";
 import tienePermiso from "../../constants/rolesPermisos";
+import { Link } from "react-router-dom";
 
 const secciones = [
     { id: "estudiantes", label: "Estudiantes", icon: "/image/studens.svg" },
@@ -25,13 +26,14 @@ function MenuNavigation() {
                     {secciones.map((sec) =>
                         tienePermiso(usuario.rol, sec.id) ? (
                             <li key={sec.id}>
-                                <a href="#">
+                                <Link to={`/dashboard/${sec.id}`}>
                                     <img src={sec.icon} alt={sec.label} /> {sec.label}
-                                </a>
+                                </Link>
                             </li>
                         ) : null
                     )}
                 </ul>
+
             </nav>
         </div>
     );
