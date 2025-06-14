@@ -1,4 +1,4 @@
-.tabla-estudiantes-container {
+.tabla-periodos-container {
     overflow-x: auto;
     padding: 1rem;
     border-radius: 10px;
@@ -9,76 +9,96 @@
 }
 
 /* Para modo oscuro */
-.dark .tabla-estudiantes-container {
+.dark .tabla-periodos-container {
     background-color: #111827;
     /* Fondo del contenedor que envuelve la tabla en dark */
     box-shadow: none;
     border: 1px solid #374151;
 }
 
-.tabla-estudiantes {
+.periodo-nombre {
+    background: none;
+    border: none;
+    color: var(--link-color, #0077cc);
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.periodo-nombre:hover {
+    color: var(--link-hover-color, #005fa3);
+    transform: scale(1.02);
+    text-decoration: underline;
+}
+
+
+.tabla-periodos {
     width: 100%;
+    
     border-collapse: separate;
     /* Necesario para aplicar bordes redondeados */
     border-spacing: 0;
     font-family: sans-serif;
     background-color: #ffffff;
     color: #111827;
-    box-shadow: 0 0 10px rgba(54, 43, 43, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     border-radius: 10px;
+    
 }
 
 /* Bordes redondeados solo en las esquinas */
-.tabla-estudiantes thead th:first-child {
+.tabla-periodos thead th:first-child {
     border-top-left-radius: 10px;
 }
 
-.tabla-estudiantes thead th:last-child {
+.tabla-periodos thead th:last-child {
     border-top-right-radius: 10px;
 }
 
-.tabla-estudiantes tbody tr:last-child td:first-child {
+.tabla-periodos tbody tr:last-child td:first-child {
     border-bottom-left-radius: 10px;
 }
 
-.tabla-estudiantes tbody tr:last-child td:last-child {
+.tabla-periodos tbody tr:last-child td:last-child {
     border-bottom-right-radius: 10px;
 }
 
 
-.tabla-estudiantes thead {
+.tabla-periodos thead {
     background-color: #f3f4f6;
 }
 
-.tabla-estudiantes th,
-.tabla-estudiantes td {
+.tabla-periodos th,
+.tabla-periodos td {
     padding: 12px;
     border: 1px solid #d1d5db;
-    text-align: left;
+    text-align: center;
 
 }
 
-.tabla-estudiantes tr:nth-child(even) {
+.tabla-periodos tr:nth-child(even) {
     background-color: #f9fafb;
 }
 
 /* Modo oscuro */
-.dark .tabla-estudiantes {
+.dark .tabla-periodos {
     background-color: #1f2937;
     color: #f9fafb;
 }
 
-.dark .tabla-estudiantes thead {
+.dark .tabla-periodos thead {
     background-color: #374151;
 }
 
-.dark .tabla-estudiantes th,
-.dark .tabla-estudiantes td {
+.dark .tabla-periodos th,
+.dark .tabla-periodos td {
     border-color: #4b5563;
 }
 
-.dark .tabla-estudiantes tr:nth-child(even) {
+.dark .tabla-periodos tr:nth-child(even) {
     background-color: #2d3748;
 }
 
@@ -91,6 +111,12 @@
 .nombre-alumno:hover {
     color: var(--link-hover-color, var(--link-color));
     text-decoration: underline;
+}
+
+@media (min-width: 640px) {
+    .tabla-periodos {
+        min-width: 400px;
+    }
 }
 
 :root {

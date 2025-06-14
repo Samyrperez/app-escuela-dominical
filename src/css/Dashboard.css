@@ -255,6 +255,7 @@ body:not(.dark) .panel-admin-desplegable summary {
 :root {
     --card-bg: #ffffff;
     --text-color: #1e1e1e;
+    --borde: #ccc;
     --border-color: #dcdcdc;
     --btn-hover-bg: #f0f0f0;
     --btn-hover-text: #000000;
@@ -266,4 +267,5 @@ body:not(.dark) .panel-admin-desplegable summary {
     --border-color: #3a3a3a;
     --btn-hover-bg: #2c2c2c;
     --btn-hover-text: #ffffff;
+    
 }

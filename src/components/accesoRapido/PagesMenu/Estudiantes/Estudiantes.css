@@ -34,12 +34,12 @@
 }
 
 .dark .btn-volver {
-    color: #f9fafb;
+    color: #111827;
     border-color: #4b5563;
 }
 
 .dark .btn-volver:hover {
-    background-color: #2d3748;
+    /* background-color: #2d3748; */
 }
 
 .container-accesos-estudiantes {

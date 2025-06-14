@@ -7,9 +7,9 @@ function Header({ user }) {
     const { isDarkMode, toggleDarkMode } = useTheme();
 
 
-    const handleVerPerfil = () => {
-        console.log("Ver perfil");
-    };
+    // const handleVerPerfil = () => {
+    //     console.log("Ver perfil");
+    // };
 
     const handleCerrarSesion = () => {
         console.log("Cerrar sesión");
@@ -40,7 +40,7 @@ function Header({ user }) {
 
                     <UserDropdown
                         user={user}
-                        onVerPerfil={handleVerPerfil}
+                        // onVerPerfil={handleVerPerfil}
                         onCerrarSesion={handleCerrarSesion}
                     />
                 </div>

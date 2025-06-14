@@ -2,9 +2,26 @@ import { estudiantes } from "../../../../data/dataEstudiantes";
 import { useNavigate } from "react-router-dom";
 import TablaEstudiantes from "./TablaEstudiantes";
 import "../Estudiantes/Estudiantes.css";
+import { useEffect, useState } from "react";
+import obtenerAlumnos from "../../../../api/alumnos/obtenerAlumnos";
+
 
 function Estudiantes() {
   const navigate = useNavigate();
+  const [alumnos, setAlumnos] = useState([]);
+
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const cargarAlumnos = async () => {
+      const response = await obtenerAlumnos(token);
+      console.log("Respuesta de la API:", response); // Esto debe mostrar el objeto con data
+      setAlumnos(response.data); // 👈 Solo esto necesitas
+    };
+
+    cargarAlumnos();
+  }, []);
+
 
   return (
     <div className="estudiantes">
@@ -17,7 +34,7 @@ function Estudiantes() {
         </div>
 
         <div className="container-info-estudiantes">
-          <TablaEstudiantes estudiantes={estudiantes} />
+          <TablaEstudiantes estudiantes={alumnos} />
         </div>
       </div>
 

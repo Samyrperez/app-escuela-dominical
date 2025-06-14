@@ -1,27 +1,26 @@
+// src/componentes/dashboard/Maestros/InfoMaestro.jsx
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { estudiantes } from "../../../../../../data/dataEstudiantes";
-import "./InfoEstudiante.css";
+import { maestros } from "../../../../../../data/dataMaestros";
+import "../InfoMaestros/InfoMaestros.css";
 
-function InfoEstudiante() {
+function InfoMaestro() {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const [estudiante, setEstudiante] = useState(null);
+    const [maestro, setMaestro] = useState(null);
     const [modoEdicion, setModoEdicion] = useState(false);
     const [formData, setFormData] = useState({
         nombre: "",
-        sexo: "",
-        fechaNacimiento: "",
-        acudiente: "",
-        telefono: ""
+        horarioCulto: "",
+        curso: ""
     });
 
     useEffect(() => {
-        const est = estudiantes.find(e => e.id === parseInt(id));
-        if (est) {
-            setEstudiante(est);
-            setFormData(est);
+        const m = maestros.find(m => m.id === parseInt(id));
+        if (m) {
+            setMaestro(m);
+            setFormData(m);
         }
     }, [id]);
 
@@ -35,23 +34,23 @@ function InfoEstudiante() {
 
     const handleGuardar = () => {
         console.log("Datos guardados:", formData);
-        setEstudiante(formData);
+        setMaestro(formData);
         setModoEdicion(false);
     };
 
     const handleCancelarEdicion = () => {
-        setFormData(estudiante);
+        setFormData(maestro);
         setModoEdicion(false);
     };
 
-    if (!estudiante) return <p>Cargando estudiante...</p>;
+    if (!maestro) return <p>Cargando maestro...</p>;
 
     return (
         <div className="registro-estudiantes">
             <div className="registro-header">
-                <h1>Información estudiante</h1>
-                <button className="btn-volver" onClick={() => navigate("/dashboard/estudiantes")}>
-                    ← Volver
+                <h1>Información maestro</h1>
+                <button className="btn-volver" onClick={() => navigate("/dashboard/maestros")}>
+                    ← Regresar
                 </button>
             </div>
 
@@ -67,47 +66,26 @@ function InfoEstudiante() {
                     />
                 </div>
                 <div className="campo-formulario">
-                    <label>Sexo</label>
+                    <label>Horario de culto</label>
                     <input
                         type="text"
-                        name="sexo"
-                        value={formData.sexo}
+                        name="horarioCulto"
+                        value={formData.horarioCulto}
                         onChange={handleChange}
                         disabled={!modoEdicion}
                     />
                 </div>
                 <div className="campo-formulario">
-                    <label>Fecha de nacimiento</label>
-                    <input
-                        type="date"
-                        name="fechaNacimiento"
-                        value={formData.fechaNacimiento}
-                        onChange={handleChange}
-                        disabled={!modoEdicion}
-                    />
-                </div>
-                <div className="campo-formulario">
-                    <label>Acudiente (opcional)</label>
+                    <label>Curso asignado</label>
                     <input
                         type="text"
-                        name="acudiente"
-                        value={formData.acudiente || ""}
-                        onChange={handleChange}
-                        disabled={!modoEdicion}
-                    />
-                </div>
-                <div className="campo-formulario">
-                    <label>Teléfono (opcional)</label>
-                    <input
-                        type="text"
-                        name="telefono"
-                        value={formData.telefono || ""}
+                        name="curso"
+                        value={formData.curso}
                         onChange={handleChange}
                         disabled={!modoEdicion}
                     />
                 </div>
 
-                {/* Botones abajo */}
                 <div className="acciones-bottom">
                     {modoEdicion ? (
                         <>
@@ -134,4 +112,4 @@ function InfoEstudiante() {
     );
 }
 
-export default InfoEstudiante;
+export default InfoMaestro;

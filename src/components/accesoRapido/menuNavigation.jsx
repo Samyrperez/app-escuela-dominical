@@ -1,5 +1,5 @@
 import "../accesoRapido/menuNavigation.css";
-import useAuth from "../../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import tienePermiso from "../../constants/rolesPermisos";
 import { Link } from "react-router-dom";
 
@@ -17,14 +17,19 @@ const secciones = [
 
 
 function MenuNavigation() {
-    const { usuario } = useAuth();
+    const { user } = useAuth();
+    console.log("Usuario en MenuNavigation:", user);
+    // Esperar a que el usuario esté cargado
+    if (!user) {
+        return null; // o un loader si prefieres
+    }
 
     return (
         <div className="container-acceso-rapido">
             <nav className="menu-principal">
                 <ul>
                     {secciones.map((sec) =>
-                        tienePermiso(usuario.rol, sec.id) ? (
+                        tienePermiso(user?.rol, sec.id) ? (
                             <li key={sec.id}>
                                 <Link to={`/dashboard/${sec.id}`}>
                                     <img src={sec.icon} alt={sec.label} /> {sec.label}
@@ -33,11 +38,13 @@ function MenuNavigation() {
                         ) : null
                     )}
                 </ul>
-
             </nav>
         </div>
     );
 }
+
+
+
 
 
 export default MenuNavigation;

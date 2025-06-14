@@ -1,4 +1,4 @@
-.title-cursos {
+.title-maestros {
     font-size: 2rem;
     font-weight: 600;
     color: #1a1a1a;
@@ -11,7 +11,7 @@
     flex-wrap: wrap;
 }
 
-.dark .title-cursos {
+.dark .title-maestros {
     color: #f9fafb;
     border-bottom: 2px solid #4b5563;
 }
@@ -19,7 +19,7 @@
 .btn-volver {
     /* margin: 10px; */
     padding: 6px 12px;
-    background-color: var(--card-bg);
+    background-color: transparent;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 14px;
@@ -29,19 +29,19 @@
 }
 
 .btn-volver:hover {
-    background-color: var(--btn-hover-bg);
+    background-color: #f3f4f6;
 }
 
 .dark .btn-volver {
-    color: #111827;
+    color: #f9fafb;
     border-color: #4b5563;
 }
 
 .dark .btn-volver:hover {
-    /* background-color: #2d3748; */
+    background-color: #2d3748;
 }
 
-.container-accesos-cursos {
+.container-accesos-maestros {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
@@ -73,29 +73,7 @@
 
 
 @media (min-width: 640px) {
-    .title-cursos button {
+    .title-maestros button {
         margin-right: 0px;
     }
 }
-
-/* Claro */
-/* :root {
-    --fondo-principal: #ffffff;
-    --texto-principal: #1a1a1a;
-    
-    --hover-btn: #f0f0f0;
-    --btn-secundario: #e0e0e0;
-    --btn-secundario-hover: #d5d5d5;
-    --texto-btn: #000000;
-} */
-
-/* Oscuro */
-/* body[data-theme="dark"] {
-    --fondo-principal: #121212;
-    --texto-principal: #f5f5f5;
-    --borde: #444;
-    --hover-btn: #2c2c2c;
-    --btn-secundario: #2a2a2a;
-    --btn-secundario-hover: #3a3a3a;
-    --texto-btn: #ffffff;
-} */

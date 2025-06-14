@@ -5,21 +5,16 @@ import PanelAdmin from "../components/panelAdministrativo/PanelAdmin";
 import "../css/Dashboard.css"
 import { Outlet } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
-
-// import { rolPermisos } from "../constants/rolesPermisos";
 
 
 function Dashboard() {
-    // simulación
-    const user = {
-        userName: "Sperez",
-        nombre: "Sam Pérez",
-        rol: "Admin"
-    };
-
+    const { user } = useAuth();
     const location = useLocation();
     const estaEnSubRuta = location.pathname.startsWith("/dashboard/") && location.pathname !== "/dashboard";
+
+    if (!user) return null;
 
 
     return (

@@ -67,3 +67,39 @@
 .dark .dropdown-btn:hover {
     text-decoration: underline;
 }
+
+.avatar-iniciales {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #4a4a4a; /* puedes usar #333 o variable CSS para dark/light */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s;
+}
+
+.avatar-iniciales:hover {
+    transform: scale(1.05);
+}
+
+/* Modo oscuro */
+.dark .avatar-iniciales {
+    background-color: #fff; /* fondo blanco */
+    color: #000;            /* letra negra */
+}
+
+:root {
+    --avatar-bg: #4a4a4a;
+    --avatar-text: #ffffff;
+}
+
+body.dark {
+    --avatar-bg: #dddddd;
+    --avatar-text: #1a1a1a;
+}

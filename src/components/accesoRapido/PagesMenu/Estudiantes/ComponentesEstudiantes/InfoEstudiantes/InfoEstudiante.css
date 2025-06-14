@@ -135,10 +135,10 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (min-width: 640px) {
     .registro-header {
-        flex-direction: column;
-        align-items: flex-start;
+        /* flex-direction: column; */
+        /* align-items: flex-start; */
     }
 
     .registro-formulario {
@@ -146,7 +146,7 @@
     }
 
     .acciones-bottom {
-        flex-direction: column;
+        /* flex-direction: column; */
         align-items: stretch;
     }
 }

@@ -1,4 +1,4 @@
-.tabla-estudiantes-container {
+.tabla-maestros-container {
     overflow-x: auto;
     padding: 1rem;
     border-radius: 10px;
@@ -9,14 +9,29 @@
 }
 
 /* Para modo oscuro */
-.dark .tabla-estudiantes-container {
+.dark .tabla-maestros-container {
     background-color: #111827;
     /* Fondo del contenedor que envuelve la tabla en dark */
     box-shadow: none;
     border: 1px solid #374151;
 }
 
-.tabla-estudiantes {
+.nombre-maestro {
+    background: none;
+    border: none;
+    color: var(--link-color, #0077cc);
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 0;
+    font-size: 1rem;
+}
+
+.nombre-maestro:hover {
+    color: var(--link-hover-color, #005fa3);
+}
+
+.tabla-maestros {
     width: 100%;
     border-collapse: separate;
     /* Necesario para aplicar bordes redondeados */
@@ -24,61 +39,61 @@
     font-family: sans-serif;
     background-color: #ffffff;
     color: #111827;
-    box-shadow: 0 0 10px rgba(54, 43, 43, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     border-radius: 10px;
 }
 
 /* Bordes redondeados solo en las esquinas */
-.tabla-estudiantes thead th:first-child {
+.tabla-maestros thead th:first-child {
     border-top-left-radius: 10px;
 }
 
-.tabla-estudiantes thead th:last-child {
+.tabla-maestros thead th:last-child {
     border-top-right-radius: 10px;
 }
 
-.tabla-estudiantes tbody tr:last-child td:first-child {
+.tabla-maestros tbody tr:last-child td:first-child {
     border-bottom-left-radius: 10px;
 }
 
-.tabla-estudiantes tbody tr:last-child td:last-child {
+.tabla-maestros tbody tr:last-child td:last-child {
     border-bottom-right-radius: 10px;
 }
 
 
-.tabla-estudiantes thead {
+.tabla-maestros thead {
     background-color: #f3f4f6;
 }
 
-.tabla-estudiantes th,
-.tabla-estudiantes td {
+.tabla-maestros th,
+.tabla-maestros td {
     padding: 12px;
     border: 1px solid #d1d5db;
     text-align: left;
 
 }
 
-.tabla-estudiantes tr:nth-child(even) {
+.tabla-maestros tr:nth-child(even) {
     background-color: #f9fafb;
 }
 
 /* Modo oscuro */
-.dark .tabla-estudiantes {
+.dark .tabla-maestros {
     background-color: #1f2937;
     color: #f9fafb;
 }
 
-.dark .tabla-estudiantes thead {
+.dark .tabla-maestros thead {
     background-color: #374151;
 }
 
-.dark .tabla-estudiantes th,
-.dark .tabla-estudiantes td {
+.dark .tabla-maestros th,
+.dark .tabla-maestros td {
     border-color: #4b5563;
 }
 
-.dark .tabla-estudiantes tr:nth-child(even) {
+.dark .tabla-maestros tr:nth-child(even) {
     background-color: #2d3748;
 }
 

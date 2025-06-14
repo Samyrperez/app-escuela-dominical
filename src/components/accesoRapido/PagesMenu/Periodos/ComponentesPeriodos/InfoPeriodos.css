@@ -1,0 +1,110 @@
+/* Contenedor principal */
+.info-periodo {
+    padding: 20px;
+    background-color: var(--fondo-principal);
+    color: var(--texto-principal);
+    min-height: 100vh;
+}
+
+/* Header con título y botón */
+.header-info-periodo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.dark .header-info-periodo {
+    color: #f9fafb;
+    border-bottom: 2px solid #4b5563;
+}
+
+.header-info-periodo h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.btn-volver {
+    background-color: transparent;
+    border: 1px solid var(--borde);
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: var(--texto-principal);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-volver:hover {
+    background-color: var(--hover-btn);
+}
+
+/* Botones menú */
+.menu-periodo {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.menu-btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--btn-secundario);
+    color: var(--texto-btn);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.menu-btn:hover {
+    background-color: var(--btn-secundario-hover);
+}
+
+/* Botones de acciones del periodo */
+.acciones-periodo {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-activar,
+.btn-cerrar {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.btn-activar {
+    background-color: #28a745;
+}
+
+.btn-activar:hover {
+    opacity: 0.8;
+}
+
+.btn-cerrar {
+    background-color: #dc3545;
+}
+
+.btn-cerrar:hover {
+    opacity: 0.8;
+}
+
+:root {
+  --btn-secundario: #e0e0e0;
+  --btn-secundario-hover: #d5d5d5;
+  --texto-btn: #000;
+}
+
+[data-theme="dark"] {
+  --btn-secundario: #333;
+  --btn-secundario-hover: #444;
+  --texto-btn: #fff;
+}

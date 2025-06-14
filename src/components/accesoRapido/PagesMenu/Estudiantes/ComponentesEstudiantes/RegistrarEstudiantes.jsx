@@ -36,17 +36,17 @@ function RegistrarEstudiantes() {
 
                 <div className="form-grupo">
                     <label>Fecha de nacimiento *</label>
-                    <input type="date" required placeholder="Fecha de nacimiento"/>
+                    <input type="date" required placeholder="Fecha de nacimiento" />
                 </div>
 
                 <div className="form-grupo">
                     <label>Acudiente </label>
-                    <input type="text" placeholder="Nombre dle acudiente" />
+                    <input type="text" placeholder="Nombre del acudiente" />
                 </div>
 
                 <div className="form-grupo">
                     <label>Teléfono </label>
-                    <input type="tel"  placeholder="Telefono del acudiente"/>
+                    <input type="tel" placeholder="Telefono del acudiente" />
                 </div>
 
                 <div className="botones-formulario">

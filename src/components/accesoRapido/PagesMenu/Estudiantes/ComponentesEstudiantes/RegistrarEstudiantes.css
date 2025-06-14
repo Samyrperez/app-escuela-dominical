@@ -124,9 +124,9 @@ body.dark .btn-volver:hover {
 
 /* Responsive */
 @media (min-width: 640px) {
-    .registro-header {
-        align-items: flex-start;
-    }
+    /* .registro-header {
+        align-items: center;
+    } */
     .registro-header button {
         margin-right: 0px;
     }
