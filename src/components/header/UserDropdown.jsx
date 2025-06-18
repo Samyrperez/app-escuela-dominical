@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import "./UserDropdown.css";
 
-function UserDropdown({ user, onVerPerfil, onCerrarSesion }) {
+function UserDropdown({ user, onCerrarSesion }) {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
 

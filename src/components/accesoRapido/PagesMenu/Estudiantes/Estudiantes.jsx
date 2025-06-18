@@ -1,27 +1,20 @@
-import { estudiantes } from "../../../../data/dataEstudiantes";
+
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import TablaEstudiantes from "./TablaEstudiantes";
 import "../Estudiantes/Estudiantes.css";
-import { useEffect, useState } from "react";
-import obtenerAlumnos from "../../../../api/alumnos/obtenerAlumnos";
+// import { useEffect, useState } from "react";
+// import obtenerAlumnos from "../../../../api/alumnos/obtenerAlumnos";
+import { useAlumnos } from "../../../../context/AlumnosContext";
 
 
 function Estudiantes() {
   const navigate = useNavigate();
-  const [alumnos, setAlumnos] = useState([]);
-
+  const { alumnos, recargarAlumnos } = useAlumnos();
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    const cargarAlumnos = async () => {
-      const response = await obtenerAlumnos(token);
-      console.log("Respuesta de la API:", response); // Esto debe mostrar el objeto con data
-      setAlumnos(response.data); // 👈 Solo esto necesitas
-    };
-
-    cargarAlumnos();
+    recargarAlumnos();
   }, []);
-
 
   return (
     <div className="estudiantes">
@@ -39,13 +32,13 @@ function Estudiantes() {
       </div>
 
       <div className="container-accesos-estudiantes">
-        <button onClick={() => navigate('/dashboard/registrar-estudiantes')} className="acceso-btn">
+        <button onClick={() => navigate("/dashboard/registrar-estudiantes")} className="acceso-btn">
           Registrar estudiantes
         </button>
-        <button onClick={() => navigate('/dashboard/candidatos-promocionar')} className="acceso-btn">
+        <button onClick={() => navigate("/dashboard/candidatos-promocionar")} className="acceso-btn">
           Promociones futuras
         </button>
-        <button onClick={() => navigate('/dashboard/cumpleanios')} className="acceso-btn">
+        <button onClick={() => navigate("/dashboard/cumpleanios")} className="acceso-btn">
           Cumpleaños
         </button>
       </div>
@@ -54,3 +47,4 @@ function Estudiantes() {
 }
 
 export default Estudiantes;
+

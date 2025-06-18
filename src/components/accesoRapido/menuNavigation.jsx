@@ -18,7 +18,7 @@ const secciones = [
 
 function MenuNavigation() {
     const { user } = useAuth();
-    console.log("Usuario en MenuNavigation:", user);
+    // console.log("Usuario en MenuNavigation:", user);
     // Esperar a que el usuario esté cargado
     if (!user) {
         return null; // o un loader si prefieres

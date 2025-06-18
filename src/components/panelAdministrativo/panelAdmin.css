@@ -148,6 +148,19 @@ html.dark #container-panelAdministrativo img {
     filter: none !important;
     transition: transform 0.3s ease;
 }
+.badge {
+  background-color: #dc2626;
+  color: white;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+}
+
+body.dark .badge {
+  background-color: #f87171;
+  color: #1f2937;
+}
 
 
 @media (min-width: 640px) {

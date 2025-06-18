@@ -52,3 +52,37 @@
 .dark .notification {
     filter: brightness(0) invert(1);
 }
+
+/* Indicador visual para notificaciones */
+.tiene-notificaciones {
+    position: relative;
+    animation: campana 1s ease infinite;
+}
+
+/* 🔴 Badge de notificaciones */
+.notificacion-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
+
+/* 🌙 DARK MODE - badge */
+.dark .notificacion-badge {
+    background-color: #f87171;
+    /* rojo claro para modo oscuro */
+    color: black;
+    border-color: #2a2a2a;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+}
+@keyframes campana {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    75% { transform: rotate(-10deg); }
+}

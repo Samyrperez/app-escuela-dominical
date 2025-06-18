@@ -1,7 +1,17 @@
+import { useNavigate } from "react-router-dom";
+
 import "../panelAdministrativo/panelAdmin.css";
+import { useAlumnos } from "../../context/AlumnosContext";
+
 
 function PanelAdmin() {
-    
+    const navigate = useNavigate();
+    const { alumnos } = useAlumnos();
+
+    const hoy = new Date();
+    const cumpleMes = alumnos.filter((a) => {
+        return new Date(a.fecha_nacimiento).getMonth() === hoy.getMonth();
+    });
 
     return (
         <div id="container-panelAdministrativo">
@@ -15,9 +25,9 @@ function PanelAdmin() {
                 <img src="/image/lecciones.svg" alt="" />
             </div>
 
-            <div className="" id="cumpleanos">
+            <div className="" id="cumpleanos" onClick={() => navigate("/dashboard/alerta-cumpleanios")}>
                 <h2>Alerta de cumpleaños</h2>
-                <span className="badge">5</span>
+                <span className="badge">{cumpleMes.length}</span>
                 <img src="/image/birthday.svg" alt="" />
             </div>
 

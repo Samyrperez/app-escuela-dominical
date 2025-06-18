@@ -34,10 +34,15 @@
     border-bottom: 2px solid #4b5563;
 }
 
-
-
+.tabla-candidatos{
+    width: 100%;
+}
+.tabla-candidatos tbody{
+    border-bottom: none;
+}
 /* Encabezado */
 .tabla-candidatos th {
+    
     background-color: #f9fafb;
     color: #374151;
     font-weight: 600;
@@ -69,7 +74,9 @@
 .dark .tabla-candidatos th:last-child {
     border-right: none;
 }
-
+.tabla-candidatos tr:last-child td {
+    border-bottom: none;
+}
 /* Celdas */
 .tabla-candidatos td {
     padding: 12px 16px;

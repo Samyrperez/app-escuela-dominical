@@ -1,25 +1,18 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
-// ⚠️ ESTE objeto es temporal hasta que llegue desde el backend
-const usuarioPrueba = {
-    id: 1,
-    userName: "Sperez",
-    nombre: "Sam Pérez",
-    rol: "admin", // Cambia a "admin" para probar
-};
-
-// Creamos el contexto
+// 1. Crear el contexto
 const AuthContext = createContext();
 
-// Hook para acceder al contexto desde cualquier componente
+// 2. Hook personalizado para acceder al contexto
 export const useAuth = () => useContext(AuthContext);
 
-// Proveedor del contexto
+// 3. Proveedor del contexto
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null); // almacena el usuario autenticado
-    const [token, setToken] = useState(null);
+    const [user, setUser] = useState(null); // Usuario autenticado
+    const [token, setToken] = useState(null); // Token JWT
+    const [loading, setLoading] = useState(true); // ⬅️ NUEVO: controla carga inicial
 
-    // Guardar el usuario y token en localStorage (opcional)
+    // 4. Cargar token y usuario desde localStorage al iniciar
     useEffect(() => {
         const storedUser = localStorage.getItem("user");
         const storedToken = localStorage.getItem("token");
@@ -28,34 +21,43 @@ export const AuthProvider = ({ children }) => {
             setUser(JSON.parse(storedUser));
             setToken(storedToken);
         }
+
+        setLoading(false); // ⬅️ Una vez verificado, marcamos como cargado
     }, []);
 
+    // 5. Login (guardar usuario y token)
     const login = (userData, token) => {
-        // 👇 Le agregamos el rol directamente (temporal hasta que venga del backend)
-        const userWithRole = { ...userData, rol: "admin" };
-
+        const userWithRole = { ...userData, rol: "admin" }; // ⚠️ Temporal
         setUser(userWithRole);
         setToken(token);
         localStorage.setItem("user", JSON.stringify(userWithRole));
         localStorage.setItem("token", token);
 
-        // ✅ Si más adelante el backend devuelve el rol:
+        // ✅ Cuando el backend ya devuelva el rol, simplemente usar:
         // setUser(userData);
         // localStorage.setItem("user", JSON.stringify(userData));
     };
 
+    // 6. Logout (cerrar sesión y limpiar todo)
     const logout = () => {
         setUser(null);
         setToken(null);
         localStorage.removeItem("user");
         localStorage.removeItem("token");
+        sessionStorage.removeItem("modalCumpleHoy");
     };
 
-
-
-
     return (
-        <AuthContext.Provider value={{ user, token, login, logout, isAuthenticated: !!token }}>
+        <AuthContext.Provider
+            value={{
+                user,
+                token,
+                login,
+                logout,
+                loading, // ⬅️ importante para PrivateRoute
+                isAuthenticated: !!token,
+            }}
+        >
             {children}
         </AuthContext.Provider>
     );

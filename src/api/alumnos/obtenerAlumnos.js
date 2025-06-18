@@ -1,11 +1,11 @@
-const API_URL = import.meta.env.VITE_API_URL; // o reemplaza manualmente por tu base URL
+const API_URL = import.meta.env.VITE_API_URL; 
 
 const obtenerAlumnos = async (token) => {
     try {
         const response = await fetch(`${API_URL}/api/alumnos`, {
             headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`, // si tu API requiere token
+                Authorization: `Bearer ${token}`,
             },
         });
         

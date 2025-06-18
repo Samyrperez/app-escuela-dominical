@@ -13,8 +13,9 @@ import Periodos from './components/accesoRapido/PagesMenu/Periodos/Periodos'
 import InfoPeriodos from './components/accesoRapido/PagesMenu/Periodos/ComponentesPeriodos/InfoPeriodos'
 import Cursos from './components/accesoRapido/PagesMenu/Cursos/Cursos'
 import './App.css'
-
+import AlertaCumpleanios from './components/panelAdministrativo/components-panel/AlertaCumpleanios'
 import PrivateRoute from '../src/components/PrivateRoute'
+
 
 
 
@@ -34,6 +35,7 @@ function App() {
           <Route path='registrar-estudiantes' element={<RegistrarEstudiantes />} />
           <Route path='candidatos-promocionar' element={<CandidatosPromocionar />} />
           <Route path='cumpleanios' element={<Cumpleanios />} />
+
           {/* Maestros */}
           <Route path='maestros' element={<Maestros />} />
           <Route path='maestro/:id' element={<InfoMaestro />} />
@@ -43,6 +45,10 @@ function App() {
           <Route path='periodos/:id' element={<InfoPeriodos />} />
           {/* Cursos */}
           <Route path='cursos' element={<Cursos />} />
+
+          {/*Panel Administrativo */}
+          <Route path='alerta-cumpleanios' element={<AlertaCumpleanios />} />
+
         </Route>
 
       </Routes>

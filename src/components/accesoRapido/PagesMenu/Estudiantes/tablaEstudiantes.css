@@ -93,6 +93,64 @@
     text-decoration: underline;
 }
 
+/* Estilo general de los botones de paginación */
+.paginacion-estudiantes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.paginacion-estudiantes button {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #111;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.paginacion-estudiantes button:hover:not(:disabled) {
+    background-color: #f3f4f6;
+}
+
+.paginacion-estudiantes button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 🌓 Modo oscuro */
+body.dark .paginacion-estudiantes button {
+    background-color: #1f2937;
+    color: #f1f1f1;
+    border: 1px solid #4b5563;
+}
+
+body.dark .paginacion-estudiantes button:hover:not(:disabled) {
+    background-color: #374151;
+}
+
+.buscador-estudiantes {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+}
+
+.buscador-estudiantes input {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 250px;
+}
+
+body.dark .buscador-estudiantes input {
+    background-color: #1f2937;
+    color: #f1f1f1;
+    border: 1px solid #4b5563;
+}
+
 :root {
     --link-color: #0077cc;
     --link-hover-color: #005fa3;

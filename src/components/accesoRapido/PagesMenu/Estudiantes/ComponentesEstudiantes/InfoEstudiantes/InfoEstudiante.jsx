@@ -1,50 +1,70 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { estudiantes } from "../../../../../../data/dataEstudiantes";
+import { useAlumnos } from "../../../../../../context/AlumnosContext";
+import { editarAlumno } from "../../../../../../api/alumnos/editarAlumno";
+import { eliminarAlumno } from "../../../../../../api/alumnos/eliminarAlumno";
 import "./InfoEstudiante.css";
+
+
 
 function InfoEstudiante() {
     const { id } = useParams();
     const navigate = useNavigate();
+    const { alumnos, eliminarAlumnoDelContexto } = useAlumnos();
 
-    const [estudiante, setEstudiante] = useState(null);
+    const [formData, setFormData] = useState(null);
     const [modoEdicion, setModoEdicion] = useState(false);
-    const [formData, setFormData] = useState({
-        nombre: "",
-        sexo: "",
-        fechaNacimiento: "",
-        acudiente: "",
-        telefono: ""
-    });
 
     useEffect(() => {
-        const est = estudiantes.find(e => e.id === parseInt(id));
-        if (est) {
-            setEstudiante(est);
-            setFormData(est);
-        }
-    }, [id]);
+        const estudiante = alumnos.find((a) => a.id === parseInt(id));
+        if (estudiante) setFormData(estudiante);
+    }, [alumnos, id]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [name]: value
-        }));
+        setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    const handleGuardar = () => {
-        console.log("Datos guardados:", formData);
-        setEstudiante(formData);
-        setModoEdicion(false);
+    const handleGuardar = async () => {
+        const alumnoEditado = {
+            ...formData,
+            fecha_nacimiento: formData.fecha_nacimiento?.slice(0, 10) // ⬅️ Asegura formato YYYY-MM-DD
+        };
+
+        const actualizado = await editarAlumno(id, alumnoEditado);
+
+        if (actualizado) {
+            alert("Estudiante actualizado correctamente");
+            setModoEdicion(false);
+        } else {
+            alert("Ocurrió un error al actualizar.");
+        }
     };
+    const handleEliminar = async () => {
+        const confirmar = window.confirm("¿Estás seguro de que deseas eliminar este alumno?");
+        if (!confirmar) return;
+
+        const eliminado = await eliminarAlumno(id);
+        if (eliminado) {
+            eliminarAlumnoDelContexto(id); // ⬅️ Actualiza la lista global
+            alert("Alumno eliminado correctamente");
+            navigate("/dashboard/estudiantes");
+        } else {
+            alert("Ocurrió un error al eliminar.");
+        }
+    };
+
+
+
+
 
     const handleCancelarEdicion = () => {
-        setFormData(estudiante);
+        const estudianteOriginal = alumnos.find((a) => a.id === parseInt(id));
+        setFormData(estudianteOriginal);
         setModoEdicion(false);
     };
 
-    if (!estudiante) return <p>Cargando estudiante...</p>;
+    if (!formData) return <p>Cargando estudiante...</p>;
 
     return (
         <div className="registro-estudiantes">
@@ -67,27 +87,27 @@ function InfoEstudiante() {
                     />
                 </div>
                 <div className="campo-formulario">
-                    <label>Sexo</label>
-                    <input
-                        type="text"
-                        name="sexo"
-                        value={formData.sexo}
-                        onChange={handleChange}
-                        disabled={!modoEdicion}
-                    />
-                </div>
-                <div className="campo-formulario">
                     <label>Fecha de nacimiento</label>
                     <input
                         type="date"
-                        name="fechaNacimiento"
-                        value={formData.fechaNacimiento}
+                        name="fecha_nacimiento"
+                        value={formData.fecha_nacimiento?.slice(0, 10) || ""}
                         onChange={handleChange}
                         disabled={!modoEdicion}
                     />
                 </div>
                 <div className="campo-formulario">
-                    <label>Acudiente (opcional)</label>
+                    <label>Teléfono</label>
+                    <input
+                        type="text"
+                        name="telefono"
+                        value={formData.telefono || ""}
+                        onChange={handleChange}
+                        disabled={!modoEdicion}
+                    />
+                </div>
+                <div className="campo-formulario">
+                    <label>Acudiente</label>
                     <input
                         type="text"
                         name="acudiente"
@@ -97,17 +117,26 @@ function InfoEstudiante() {
                     />
                 </div>
                 <div className="campo-formulario">
-                    <label>Teléfono (opcional)</label>
+                    <label>Tel. Acudiente</label>
                     <input
                         type="text"
-                        name="telefono"
-                        value={formData.telefono || ""}
+                        name="acudiente_telefono"
+                        value={formData.acudiente_telefono || ""}
+                        onChange={handleChange}
+                        disabled={!modoEdicion}
+                    />
+                </div>
+                <div className="campo-formulario">
+                    <label>Dirección</label>
+                    <input
+                        type="text"
+                        name="direccion"
+                        value={formData.direccion || ""}
                         onChange={handleChange}
                         disabled={!modoEdicion}
                     />
                 </div>
 
-                {/* Botones abajo */}
                 <div className="acciones-bottom">
                     {modoEdicion ? (
                         <>
@@ -123,9 +152,10 @@ function InfoEstudiante() {
                             <button type="button" className="btn-accion editar" onClick={() => setModoEdicion(true)}>
                                 Editar
                             </button>
-                            <button type="button" className="btn-accion eliminar">
+                            <button type="button" className="btn-accion eliminar" onClick={handleEliminar}>
                                 Eliminar
                             </button>
+
                         </>
                     )}
                 </div>

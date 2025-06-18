@@ -1,22 +1,24 @@
 import { useState } from "react";
-import { estudiantes } from "../../../../../data/dataEstudiantes";
-import "../../Estudiantes/ComponentesEstudiantes/Cumpleanios.css";
 import { useNavigate } from "react-router-dom";
+import { useAlumnos } from "../../../../../context/AlumnosContext";
+import "../../Estudiantes/ComponentesEstudiantes/Cumpleanios.css";
 
 const meses = [
     "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
     "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
 ];
 
-function MesesCumpleanios() {
+function Cumpleanios() {
     const [mesSeleccionado, setMesSeleccionado] = useState(null);
     const [desplegarMeses, setDesplegarMeses] = useState(false);
     const navigate = useNavigate();
+    const { alumnos } = useAlumnos();
 
     const filtrarPorMes = (mesIndex) => {
-        return estudiantes.filter((est) => {
-            const fecha = new Date(est.fechaNacimiento);
-            return fecha.getMonth() === mesIndex;
+        return alumnos.filter((est) => {
+            const [_, mes] = est.fecha_nacimiento.split("-");
+            return parseInt(mes, 10) - 1 === mesIndex;
+
         });
     };
 
@@ -33,6 +35,7 @@ function MesesCumpleanios() {
                     ← Regresar
                 </button>
             </div>
+
             <div className="dropdown-meses">
                 <button className="boton-desplegable" onClick={() => setDesplegarMeses(!desplegarMeses)}>
                     {mesSeleccionado !== null ? meses[mesSeleccionado] : "Selecciona un mes"}
@@ -58,7 +61,8 @@ function MesesCumpleanios() {
                         <tbody>
                             {filtrarPorMes(mesSeleccionado).length > 0 ? (
                                 filtrarPorMes(mesSeleccionado).map(est => {
-                                    const dia = new Date(est.fechaNacimiento).getDate();
+                                    const dia = est.fecha_nacimiento.split("-")[2].slice(0, 2);// extrae solo el día
+
                                     return (
                                         <tr key={est.id}>
                                             <td>{est.nombre}</td>
@@ -79,7 +83,4 @@ function MesesCumpleanios() {
     );
 }
 
-export default MesesCumpleanios;
-
-
-
+export default Cumpleanios;

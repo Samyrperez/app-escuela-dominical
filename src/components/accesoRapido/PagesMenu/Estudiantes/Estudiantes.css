@@ -20,7 +20,7 @@
 .btn-volver {
     /* margin: 10px; */
     padding: 6px 12px;
-    background-color: transparent;
+    background-color: var(--card-bg);
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 14px;
@@ -36,10 +36,11 @@
 .dark .btn-volver {
     color: #111827;
     border-color: #4b5563;
+    background-color: var(--card-bg);
 }
 
 .dark .btn-volver:hover {
-    /* background-color: #2d3748; */
+    background-color: #2d3748;
 }
 
 .container-accesos-estudiantes {
