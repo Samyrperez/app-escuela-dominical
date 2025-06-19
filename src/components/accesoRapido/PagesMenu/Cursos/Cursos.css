@@ -71,6 +71,100 @@
     transform: translateY(-2px);
 }
 
+.header-cursos {
+  margin-bottom: 1.5rem;
+}
+
+.title-cursos {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 20px 0px;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.dark .title-cursos {
+  color: #f9fafb;
+  border-bottom: 2px solid #4b5563;
+}
+
+.acciones-header-cursos {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.icono-menu {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.dark .icono-menu {
+  filter: brightness(0) invert(1);
+}
+
+.dropdown-opciones {
+  position: absolute;
+  right: 0;
+  top: 36px;
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  list-style: none;
+  padding: 6px 0;
+  min-width: 170px;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-opciones li {
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.dropdown-opciones li:hover {
+  background-color: var(--btn-hover-bg);
+  color: var(--btn-hover-text);
+}
+
+.container-accesos-cursos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 2rem 0;
+  justify-content: center;
+}
+
+.acceso-btn {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  min-width: 220px;
+  text-align: center;
+}
+
+.acceso-btn:hover {
+  background-color: var(--btn-hover-bg);
+  color: var(--btn-hover-text);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
 
 @media (min-width: 640px) {
     .title-cursos button {
