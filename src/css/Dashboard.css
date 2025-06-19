@@ -18,11 +18,12 @@ body {
 
 .container-panelAdmin-dashboard {
     overflow-x: visible;
+    width: 100%;
 
 }
 
 .container-panelAdmin-dashboard details {
-    margin: auto 30px;
+    margin: auto 25px;
 }
 
 .container-panel {
@@ -31,12 +32,23 @@ body {
     flex-direction: column;
     justify-content: center;
     gap: 20px;
-    padding: 0 10px;
+    padding: 0 5px;
 }
 
 .dark .container-panel {
     background-color: #2a2a2a;
 }
+.contenido-dinamico {
+    /* flex: 1; */
+    padding: 1rem;
+    min-height: 100%;
+    width: 100%;
+    background-color: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+}
+
 
 
 .container-menu-desktop {
@@ -60,7 +72,6 @@ body {
     /* margin-bottom: 1rem; */
     /* display: flex;
     justify-content: center; */
-
 
 }
 
@@ -242,16 +253,6 @@ body:not(.dark) .panel-admin-desplegable summary {
   flex-direction: column;
 } */
 
-.contenido-dinamico {
-    flex: 1;
-    padding: 2rem;
-    min-height: 100%;
-    width: 100%;
-    background-color: var(--bg);
-    color: var(--text);
-    display: flex;
-    flex-direction: column;
-}
 
 :root {
     --card-bg: #ffffff;

@@ -39,7 +39,7 @@ function Estudiantes() {
           <h1>Estudiantes</h1>
           <div className="acciones-header" ref={menuRef}>
             <button className="btn-volver" onClick={() => navigate("/dashboard")}>
-              Regresar
+              ←  Regresar
             </button>
             <img
               src="/image/menu-vertical.svg"
@@ -50,7 +50,7 @@ function Estudiantes() {
             {menuAbierto && (
               <ul className="dropdown-opciones">
                 {esMovil && (
-                  <li onClick={() => navigate("/dashboard")}>← Volver al panel</li>
+                  <li onClick={() => navigate("/dashboard")}>Volver al panel</li>
                 )}
                 <li onClick={() => navigate("/dashboard/registrar-estudiantes")}>Registrar estudiante</li>
                 <li onClick={() => navigate("/dashboard/candidatos-promocionar")}>Promociones futuras</li>

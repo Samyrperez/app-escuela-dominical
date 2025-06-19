@@ -71,6 +71,49 @@
     transform: translateY(-2px);
 }
 
+.icono-menu {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.dark .icono-menu {
+  filter: brightness(0) invert(1);
+}
+
+.acciones-header-maestros {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Dropdown */
+.dropdown-opciones {
+  position: absolute;
+  right: 0;
+  top: 36px;
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  list-style: none;
+  padding: 6px 0;
+  min-width: 170px;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-opciones li {
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.dropdown-opciones li:hover {
+  background-color: var(--btn-hover-bg);
+  color: var(--btn-hover-text);
+}
+
 
 @media (min-width: 640px) {
     .title-maestros button {
