@@ -23,7 +23,7 @@ function CandidatosPromocionar() {
             <div className="header-candidatos">
                 <h1>Candidatos a promocionar</h1>
                 <button className="btn-volver" onClick={() => navigate("/dashboard/estudiantes")}>
-                    ← Volver
+                    Regresar
                 </button>
             </div>
 

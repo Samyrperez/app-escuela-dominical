@@ -246,6 +246,7 @@ body:not(.dark) .panel-admin-desplegable summary {
     flex: 1;
     padding: 2rem;
     min-height: 100%;
+    width: 100%;
     background-color: var(--bg);
     color: var(--text);
     display: flex;

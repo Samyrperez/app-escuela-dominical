@@ -1,21 +1,24 @@
 
 .title-estudiantes {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin: 20px 0px;
-    border-bottom: 2px solid #e5e7eb;
-    padding-bottom: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 20px 0px;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap; /* ❗ Previene que el botón se baje en pantallas pequeñas */
+  position: relative;
 }
 
 .dark .title-estudiantes {
-    color: #f9fafb;
-    border-bottom: 2px solid #4b5563;
+  color: #f9fafb;
+  border-bottom: 2px solid #4b5563;
 }
+
 
 .btn-volver {
     /* margin: 10px; */
@@ -27,6 +30,7 @@
     color: #111827;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    display: none;
 }
 
 .btn-volver:hover {
@@ -73,9 +77,65 @@
   transform: translateY(-2px);
 }
 
+.acciones-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.icono-menu {
+  width: 24px;
+  cursor: pointer;
+  filter: brightness(0);
+}
+
+.dark .icono-menu {
+  filter: brightness(0) invert(1);
+}
+
+.dropdown-opciones {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 8px 0;
+  z-index: 100;
+  width: 220px;
+  font-size: 16px;
+}
+
+.dropdown-opciones li {
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdown-opciones li:hover {
+  background-color: #f3f4f6;
+}
+
+/* Modo oscuro */
+.dark .dropdown-opciones {
+  background-color: #1f2937;
+  color: #f3f4f6;
+  border-color: #4b5563;
+}
+
+.dark .dropdown-opciones li:hover {
+  background-color: #374151;
+}
+
 
 @media (min-width: 640px) {
     .title-estudiantes button {
       margin-right: 0px;
+    }
+    .btn-volver {
+      display: flex;
     }
 }
