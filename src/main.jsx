@@ -7,6 +7,7 @@ import App from './App.jsx';
 import { AlumnosProvider } from './context/AlumnosContext.jsx';
 import { BuscadorProvider } from './context/BuscadorContext.jsx';
 import { NotificacionesProvider } from './context/NotificacionesContext.jsx';
+import { MaestrosProvider } from './context/MaestrosContext.jsx';
 
 
 
@@ -17,7 +18,9 @@ createRoot(document.getElementById('root')).render(
         <AlumnosProvider>
           <BuscadorProvider>
             <NotificacionesProvider>
-              <App />
+              <MaestrosProvider>
+                <App />
+              </MaestrosProvider>
             </NotificacionesProvider>
           </BuscadorProvider>
         </AlumnosProvider>

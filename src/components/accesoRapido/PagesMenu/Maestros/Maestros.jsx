@@ -1,16 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import { maestros } from "../../../../data/dataMaestros";
 import TablaMaestros from "./TablaMaestros";
 import "../Maestros/Maestros.css";
+import { useMaestros } from "../../../../context/MaestrosContext";
 
 function Maestros() {
     const navigate = useNavigate();
     const [menuAbierto, setMenuAbierto] = useState(false);
     const dropdownRef = useRef(null);
     const [esMovil, setEsMovil] = useState(window.innerWidth < 640);
+    const { maestros, recargarMaestros } = useMaestros(); // ✅ Corrección aquí
 
-    // Detectar clic fuera del dropdown
     useEffect(() => {
         const handleClickOutside = (e) => {
             if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -21,7 +21,6 @@ function Maestros() {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    // Detectar tamaño de pantalla
     useEffect(() => {
         const handleResize = () => setEsMovil(window.innerWidth < 640);
         window.addEventListener("resize", handleResize);
@@ -33,6 +32,10 @@ function Maestros() {
         if (accion === "volver") navigate("/dashboard");
         if (accion === "registrar") navigate("/dashboard/registrar-maestro");
     };
+
+    useEffect(() => {
+        recargarMaestros();
+    }, []);
 
     return (
         <div className="maestros">

@@ -45,7 +45,7 @@ function RegistrarMaestro() {
                     />
                 </div>
                 <div className="campo-formulario">
-                    <label>Horario de servicio</label>
+                    <label>Telefono</label>
                     <input
                         type="text"
                         name="horarioCulto"
