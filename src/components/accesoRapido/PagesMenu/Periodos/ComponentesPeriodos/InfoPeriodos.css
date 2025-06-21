@@ -6,61 +6,89 @@
     min-height: 100vh;
 }
 
-/* Header con título y botón */
+/* Header con estructura similar a cursos */
 .header-info-periodo {
+    margin-bottom: 1.5rem;
+}
+
+.title-info-periodo {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 20px 0px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #e5e7eb;
+    flex-wrap: wrap;
 }
 
-.dark .header-info-periodo {
+.dark .title-info-periodo {
     color: #f9fafb;
     border-bottom: 2px solid #4b5563;
 }
 
-.header-info-periodo h1 {
-    font-size: 24px;
-    font-weight: bold;
+.acciones-header-periodo {
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 
 .btn-volver {
-    background-color: transparent;
-    border: 1px solid var(--borde);
-    padding: 8px 12px;
-    border-radius: 5px;
-    color: var(--texto-principal);
+    padding: 6px 12px;
+    background-color: var(--card-bg);
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #111827;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 .btn-volver:hover {
-    background-color: var(--hover-btn);
+    background-color: var(--btn-hover-bg);
 }
 
-/* Botones menú */
-.menu-periodo {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
+.dark .btn-volver {
+    color: #111827;
+    border-color: #4b5563;
 }
 
-.menu-btn {
-    padding: 10px 18px;
-    border: none;
-    border-radius: 6px;
-    background-color: var(--btn-secundario);
-    color: var(--texto-btn);
-    font-weight: 500;
+.icono-menu {
+    width: 28px;
+    height: 28px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    margin-left: 10px;
 }
 
-.menu-btn:hover {
-    background-color: var(--btn-secundario-hover);
+.dark .icono-menu {
+    filter: brightness(0) invert(1);
+}
+
+.dropdown-opciones {
+    position: absolute;
+    right: 0;
+    top: 36px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    list-style: none;
+    padding: 6px 0;
+    min-width: 170px;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-opciones li {
+    padding: 10px 16px;
+    cursor: pointer;
+}
+
+.dropdown-opciones li:hover {
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-hover-text);
 }
 
 /* Botones de acciones del periodo */
@@ -68,6 +96,7 @@
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .btn-activar,
@@ -97,14 +126,90 @@
     opacity: 0.8;
 }
 
-:root {
-  --btn-secundario: #e0e0e0;
-  --btn-secundario-hover: #d5d5d5;
-  --texto-btn: #000;
+.nombre-periodo {
+    background: none;
+    border: none;
+    color: var(--link-color, #0077cc);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
 }
 
-[data-theme="dark"] {
-  --btn-secundario: #333;
-  --btn-secundario-hover: #444;
-  --texto-btn: #fff;
+.nombre-periodo:hover {
+    text-decoration: underline;
+    color: var(--link-hover-color, #005fa3);
+}
+
+.buscador-periodos {
+    margin-bottom: 1rem;
+}
+
+.buscador-periodos input {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 250px;
+}
+
+.dark .buscador-periodos input {
+    background-color: #1f2937;
+    color: #f1f1f1;
+    border: 1px solid #4b5563;
+}
+
+.nombre-periodo {
+    background: none;
+    border: none;
+    color: var(--link-color, #0077cc);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.nombre-periodo:hover {
+    text-decoration: underline;
+    color: var(--link-hover-color, #005fa3);
+}
+
+.paginacion-periodos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.paginacion-periodos button {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #111;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.paginacion-periodos button:hover:not(:disabled) {
+    background-color: #f3f4f6;
+}
+
+.paginacion-periodos button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.dark .paginacion-periodos button {
+    background-color: #1f2937;
+    color: #f1f1f1;
+    border: 1px solid #4b5563;
+}
+
+.dark .paginacion-periodos button:hover:not(:disabled) {
+    background-color: #374151;
+}
+
+@media (min-width: 640px) {
+    .title-info-periodo button {
+        margin-right: 0px;
+    }
 }

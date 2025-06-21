@@ -1,18 +1,20 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
+import { usePeriodos } from "../../../../context/PeriodosContext";
 import TablaPeriodos from "./TablaPeriodos";
 import "./Periodos.css";
+
 
 function Periodos() {
     const navigate = useNavigate();
     const [esMovil, setEsMovil] = useState(window.innerWidth < 640);
     const [menuAbierto, setMenuAbierto] = useState(false);
     const menuRef = useRef(null);
+    const { periodos, recargarPeriodos } = usePeriodos();
 
-    const periodos = [
-        { id: 1, nombrePeriodo: "2025-2026" },
-        { id: 2, nombrePeriodo: "2024-2025" }
-    ];
+    useEffect(() => {
+        recargarPeriodos(); // ✅
+    }, []);
 
     useEffect(() => {
         const handleResize = () => setEsMovil(window.innerWidth < 640);

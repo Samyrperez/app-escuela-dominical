@@ -1,12 +1,22 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCursos } from "../../../../context/CursosContext";
+import TablaCursos from "./TablaCursos";
 import "./Cursos.css";
+
+
+
 
 function Cursos() {
     const navigate = useNavigate();
     const [menuAbierto, setMenuAbierto] = useState(false);
     const dropdownRef = useRef(null);
     const [esMovil, setEsMovil] = useState(window.innerWidth < 640);
+    const { cursos, recargarCursos } = useCursos();
+
+    useEffect(() => {
+        recargarCursos();
+    }, [])
 
     // Detectar clic fuera del dropdown
     useEffect(() => {
@@ -34,7 +44,6 @@ function Cursos() {
             navigate("/dashboard/registrar-curso");
         }
         if (accion === "actuales") {
-            // Aquí va la navegación a cursos actuales
             navigate("/dashboard/cursos-actuales");
         }
     };
@@ -69,6 +78,10 @@ function Cursos() {
                             </ul>
                         )}
                     </div>
+                </div>
+
+                <div className="container-info-cursos">
+                    <TablaCursos cursos={cursos} />
                 </div>
             </div>
 

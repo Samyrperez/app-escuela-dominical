@@ -10,6 +10,7 @@ const obtenerCursos = async (token) => {
         });
 
         if (!res.ok) throw new Error("Error al obtener cursos");
+        
 
         return await res.json();
     } catch (error) {

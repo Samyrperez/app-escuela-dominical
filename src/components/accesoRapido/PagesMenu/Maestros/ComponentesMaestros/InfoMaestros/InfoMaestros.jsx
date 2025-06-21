@@ -1,12 +1,13 @@
 // src/componentes/dashboard/Maestros/InfoMaestro.jsx
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { maestros } from "../../../../../../data/dataMaestros";
 import "../InfoMaestros/InfoMaestros.css";
+import { useMaestros } from "../../../../../../context/MaestrosContext";
 
 function InfoMaestro() {
     const { id } = useParams();
     const navigate = useNavigate();
+    const { maestros, recargarMaestros } = useMaestros();
 
     const [maestro, setMaestro] = useState(null);
     const [modoEdicion, setModoEdicion] = useState(false);
@@ -15,6 +16,10 @@ function InfoMaestro() {
         horarioCulto: "",
         curso: ""
     });
+
+    useEffect(() => {
+        recargarMaestros();
+    }, [])
 
     useEffect(() => {
         const m = maestros.find(m => m.id === parseInt(id));
