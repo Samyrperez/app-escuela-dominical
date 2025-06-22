@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useAlumnos } from "../../../../../../context/AlumnosContext";
 import { editarAlumno } from "../../../../../../api/alumnos/editarAlumno";
@@ -10,6 +10,8 @@ import "./InfoEstudiante.css";
 function InfoEstudiante() {
     const { id } = useParams();
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from || "/dashboard/estudiantes";
     const { alumnos, eliminarAlumnoDelContexto } = useAlumnos();
 
     const [formData, setFormData] = useState(null);
@@ -70,7 +72,7 @@ function InfoEstudiante() {
         <div className="registro-estudiantes">
             <div className="registro-header">
                 <h1>Información estudiante</h1>
-                <button className="btn-volver" onClick={() => navigate("/dashboard/estudiantes")}>
+                <button className="btn-volver" onClick={() => navigate(from)}>
                     ← Regresar
                 </button>
             </div>

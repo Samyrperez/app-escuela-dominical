@@ -2,18 +2,9 @@
 import { useNavigate } from "react-router-dom";
 import { estudiantes } from "../../../../../data/dataEstudiantes";
 import "./CandidatosPromocionar.css";
+import { calcularEdad } from "../../../../../utils/calcularEdad";
 
 // Función para calcular edad
-function calcularEdad(fechaNacimiento) {
-    const hoy = new Date();
-    const nacimiento = new Date(fechaNacimiento);
-    let edad = hoy.getFullYear() - nacimiento.getFullYear();
-    const mes = hoy.getMonth() - nacimiento.getMonth();
-    if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
-        edad--;
-    }
-    return edad;
-}
 
 function CandidatosPromocionar() {
     const navigate = useNavigate();

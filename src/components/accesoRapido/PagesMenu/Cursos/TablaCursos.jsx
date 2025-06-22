@@ -1,11 +1,12 @@
-// src/componentes/dashboard/Cursos/TablaCursos.jsx
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./TablaCursos.css";
 
 function TablaCursos({ cursos }) {
     const [busqueda, setBusqueda] = useState("");
     const [paginaActual, setPaginaActual] = useState(1);
     const cursosPorPagina = 10;
+    const navigate = useNavigate();
 
     useEffect(() => {
         setPaginaActual(1);
@@ -22,14 +23,16 @@ function TablaCursos({ cursos }) {
 
     return (
         <div className="tabla-cursos-container">
-            <div className="buscador-cursos">
-                <input
-                    type="text"
-                    placeholder="Buscar por nombre del curso..."
-                    value={busqueda}
-                    onChange={(e) => setBusqueda(e.target.value)}
-                />
-            </div>
+            {cursosFiltrados.length > 5 && (
+                <div className="buscador-cursos">
+                    <input
+                        type="text"
+                        placeholder="Buscar por nombre del curso..."
+                        value={busqueda}
+                        onChange={(e) => setBusqueda(e.target.value)}
+                    />
+                </div>
+            )}
 
             <table className="tabla-cursos">
                 <thead>
@@ -44,7 +47,13 @@ function TablaCursos({ cursos }) {
                     {cursosPagina.length > 0 ? (
                         cursosPagina.map((curso) => (
                             <tr key={curso.id}>
-                                <td>{curso.nombre}</td>
+                                <td
+                                    className="nombre-curso"
+                                    onClick={() => navigate(`/dashboard/cursos/${curso.id}`)}
+                                    style={{ cursor: "pointer", color: "var(--link-color)" }}
+                                >
+                                    {curso.nombre}
+                                </td>
                                 <td>{curso.edad_minima}</td>
                                 <td>{curso.edad_maxima}</td>
                                 <td>{curso.estado}</td>
@@ -77,7 +86,6 @@ function TablaCursos({ cursos }) {
                     </button>
                 </div>
             )}
-
         </div>
     );
 }

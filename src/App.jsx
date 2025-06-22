@@ -15,6 +15,8 @@ import Cursos from './components/accesoRapido/PagesMenu/Cursos/Cursos'
 import './App.css'
 import AlertaCumpleanios from './components/panelAdministrativo/components-panel/AlertaCumpleanios'
 import PrivateRoute from '../src/components/PrivateRoute'
+import CursoDetalle from './components/accesoRapido/PagesMenu/Cursos/CursoDetalles'
+
 
 
 
@@ -45,6 +47,7 @@ function App() {
           <Route path='periodos/:id' element={<InfoPeriodos />} />
           {/* Cursos */}
           <Route path='cursos' element={<Cursos />} />
+          <Route path="/dashboard/cursos/:id" element={<CursoDetalle />} />
 
           {/*Panel Administrativo */}
           <Route path='alerta-cumpleanios' element={<AlertaCumpleanios />} />
