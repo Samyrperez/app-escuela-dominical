@@ -13,7 +13,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 1rem;
     
 }
@@ -133,12 +133,55 @@
     gap: 1rem;
     margin-top: 2rem;
 }
+.acciones-header-info-estudiante {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dropdown-opciones {
+    position: absolute;
+    right: 0;
+    top: 36px;
+    /* Ajusta según altura del ícono */
+    background: var(--card-bg, #fff);
+    color: var(--text-color, #111);
+    border: 1px solid var(--border-color, #ccc);
+    border-radius: 8px;
+    list-style: none;
+    padding: 6px 0;
+    min-width: 170px;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-opciones li {
+    padding: 10px 16px;
+    cursor: pointer;
+}
+
+.dropdown-opciones li:hover {
+    background-color: var(--btn-hover-bg, #f3f4f6);
+    color: var(--btn-hover-text, var(--text-color));
+}
+
+[data-theme="dark"] .dropdown-opciones {
+    background: #1f2937;
+    border-color: #4b5563;
+    color: #f9fafb;
+}
+
+[data-theme="dark"] .dropdown-opciones li:hover {
+    background-color: #374151;
+}
 
 /* Responsive */
-@media (min-width: 640px) {
+@media (max-width: 640px) {
     .registro-header {
         /* flex-direction: column; */
         /* align-items: flex-start; */
+        
     }
 
     .registro-formulario {
@@ -148,6 +191,9 @@
     .acciones-bottom {
         /* flex-direction: column; */
         align-items: stretch;
+    }
+    .acciones-header-info-estudiante {
+        justify-content: flex-end;
     }
 }
 

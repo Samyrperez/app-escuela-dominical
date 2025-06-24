@@ -1,5 +1,5 @@
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useAlumnos } from "../../../../../../context/AlumnosContext";
 import { editarAlumno } from "../../../../../../api/alumnos/editarAlumno";
 import { eliminarAlumno } from "../../../../../../api/alumnos/eliminarAlumno";
@@ -17,6 +17,28 @@ function InfoEstudiante() {
     const [formData, setFormData] = useState(null);
     const [modoEdicion, setModoEdicion] = useState(false);
 
+    // 👇 NUEVO: Responsive y menú
+    const [esMovil, setEsMovil] = useState(window.innerWidth < 640);
+    const [menuAbierto, setMenuAbierto] = useState(false);
+    const menuRef = useRef(null);
+
+    useEffect(() => {
+        const handleResize = () => setEsMovil(window.innerWidth < 640);
+        const handleClickOutside = (e) => {
+            if (menuRef.current && !menuRef.current.contains(e.target)) {
+                setMenuAbierto(false);
+            }
+        };
+
+        window.addEventListener("resize", handleResize);
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
     useEffect(() => {
         const estudiante = alumnos.find((a) => a.id === parseInt(id));
         if (estudiante) setFormData(estudiante);
@@ -30,11 +52,10 @@ function InfoEstudiante() {
     const handleGuardar = async () => {
         const alumnoEditado = {
             ...formData,
-            fecha_nacimiento: formData.fecha_nacimiento?.slice(0, 10) // ⬅️ Asegura formato YYYY-MM-DD
+            fecha_nacimiento: formData.fecha_nacimiento?.slice(0, 10),
         };
 
         const actualizado = await editarAlumno(id, alumnoEditado);
-
         if (actualizado) {
             alert("Estudiante actualizado correctamente");
             setModoEdicion(false);
@@ -42,23 +63,20 @@ function InfoEstudiante() {
             alert("Ocurrió un error al actualizar.");
         }
     };
+
     const handleEliminar = async () => {
         const confirmar = window.confirm("¿Estás seguro de que deseas eliminar este alumno?");
         if (!confirmar) return;
 
         const eliminado = await eliminarAlumno(id);
         if (eliminado) {
-            eliminarAlumnoDelContexto(id); // ⬅️ Actualiza la lista global
+            eliminarAlumnoDelContexto(id);
             alert("Alumno eliminado correctamente");
             navigate("/dashboard/estudiantes");
         } else {
             alert("Ocurrió un error al eliminar.");
         }
     };
-
-
-
-
 
     const handleCancelarEdicion = () => {
         const estudianteOriginal = alumnos.find((a) => a.id === parseInt(id));
@@ -72,10 +90,34 @@ function InfoEstudiante() {
         <div className="registro-estudiantes">
             <div className="registro-header">
                 <h1>Información estudiante</h1>
-                <button className="btn-volver" onClick={() => navigate(from)}>
-                    ← Regresar
-                </button>
+
+                {/* Acciones en escritorio */}
+                {!esMovil && (
+                    <div className="acciones-header-info-estudiante">
+                        <button className="btn-volver" onClick={() => navigate(from)}>
+                            ← Regresar
+                        </button>
+                    </div>
+                )}
+
+                {/* Acciones en móvil */}
+                {esMovil && (
+                    <div className="acciones-header-info-estudiante" ref={menuRef}>
+                        <img
+                            src="/image/menu-vertical.svg"
+                            alt="acciones"
+                            className="icono-menu"
+                            onClick={() => setMenuAbierto(!menuAbierto)}
+                        />
+                        {menuAbierto && (
+                            <ul className="dropdown-opciones">
+                                <li onClick={() => navigate(from)}>← Regresar</li>
+                            </ul>
+                        )}
+                    </div>
+                )}
             </div>
+
 
             <form className="registro-formulario">
                 <div className="campo-formulario">

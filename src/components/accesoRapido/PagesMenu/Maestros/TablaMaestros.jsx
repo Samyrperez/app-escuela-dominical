@@ -10,7 +10,8 @@ function TablaMaestros({ maestros }) {
                 <thead>
                     <tr>
                         <th>Nombre</th>
-                        <th>Horario de Culto</th>
+                        <th>Telefono</th>
+                        <th>Celebracion</th>
                         <th>Curso</th>
                     </tr>
                 </thead>
@@ -25,6 +26,7 @@ function TablaMaestros({ maestros }) {
                                     {maestro.nombre}
                                 </button>
                             </td>
+                            <td>{maestro.telefono}</td>
                             <td>{maestro.horarioCulto}</td>
                             <td>{maestro.curso}</td>
                         </tr>
